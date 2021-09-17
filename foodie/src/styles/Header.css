@@ -1,0 +1,27 @@
+.header-section {
+  display : inline-flex;
+  width : 100%;
+  height: 90px;
+  background-color: #fff;
+}
+
+.heading {
+  position : absolute;
+  left:0;
+  font-family: 'Lobster', cursive;
+  color : #000;
+  padding-top : 9px;
+}
+
+.link-div {
+  text-align: right;
+  margin-left: 840px;
+  padding-top : 30px;
+}
+.links {
+  color : gray;
+  font-size : 1.9rem;
+  margin : 20px;
+  margin-left:50px;
+  margin-right : 0;
+}

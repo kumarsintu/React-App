@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import "../styles/Items.css";
 
 
 function Items(props){
@@ -48,8 +49,5 @@ function Items(props){
     </div>
   )
 }
-
-
-
 
 export default Items;

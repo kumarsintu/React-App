@@ -4,6 +4,7 @@ import Restdetails from "./Restdetails";
 import Restaurant from "./Restaurant";
 import restaurentlist from "../restaurents";
 import Signin from "./Signin";
+import "../styles/App.css";
 
 
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import restaurentlist from "../restaurents";
 import Items from "./Items";
 import Orderdetails from "./Orderdetails";
+import "../styles/Restdetails.css";
 
 
 function Restdetails(props) {

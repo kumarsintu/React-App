@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/Header.css";
 
 function Header(props) {
   function handleSigninClick(event) {
@@ -12,8 +13,8 @@ function Header(props) {
       <div className="container-fluid header-section">
         <a className="heading" href="www.google.com"><h1 ><strong>Foodie</strong></h1></a>
         <div className="link-div">
-          <a className="nav-item links" onClick={handleSigninClick}>Log in</a>
-          <a className="nav-item links" >Sign up</a>
+          <a href="www.google.com" className="nav-item links" onClick={handleSigninClick}>Log in</a>
+          <a href="www.google.com" className="nav-item links" >Sign up</a>
         </div>
       </div>
 

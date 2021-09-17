@@ -1,4 +1,10 @@
-/* Header section*/
+.app-body{
+  position:relative;
+  margin-left: 20%;
+  margin-right : 20%;
+}
+
+/* Header section
 
 .header-section {
   display : inline-flex;
@@ -27,28 +33,17 @@
   margin-left:50px;
   margin-right : 0;
 }
-
+*/
 
 /* body section */
 
-.app-body{
-  position:relative;
-  margin-left: 20%;
-  margin-right : 20%;
-}
+
+/*
 .rest-images {
   margin-top :10px;
   position: relative;
 }
-/* .img-left{
-    margin-left:0;
-    width: 1050px;
-    height: 450px;
-}
-.img-left:hover{
-  transform : scale(1.01);
-  -webkit-transition: transform 0.5s ease-in-out;
-} */
+
 .img-left{
     margin-left:0;
     width : 681px;
@@ -85,14 +80,13 @@
   z-index: 1;
   transform : scale(1.03);
   -webkit-transition: transform 0.5s ease-in-out;
-
 }
 
+*/
+/*
 .Restdetail .name {
   font-size : 3.6rem;
   font-weight: 600;
-
-
 }
 .Restdetail .description {
   color : gray;
@@ -128,8 +122,10 @@
   position : relative;
   margin-top : 40px;
 }
+*/
 
-/* Item style */
+
+/* Item style
 .item-container {
   display:inline-flex;
   margin-top :30px;
@@ -210,8 +206,6 @@
   margin-top : 6px;
 }
 
-
-
 .item-price {
   font-size: 1.4rem;
   color : rgb(28, 28, 28);
@@ -263,9 +257,9 @@
   margin-top: 0px;
   height: 150px;
 }
+*/
 
-
-/* Order details and cart */
+/* Order details and cart
 .order-details {
   width : 100%;
   z-index: 1;
@@ -299,7 +293,7 @@
   width : 150px;
   height : 50px;
 }
-=======
+
 .rest-name{
   display: inline-block;
   margin-left: 2px;
@@ -309,4 +303,4 @@
   position: relative;
   margin-left: 160px;
 }
-
+*/
