@@ -40,10 +40,19 @@
   margin-top :10px;
   position: relative;
 }
-.img-left{
+/* .img-left{
     margin-left:0;
     width: 1050px;
     height: 450px;
+}
+.img-left:hover{
+  transform : scale(1.01);
+  -webkit-transition: transform 0.5s ease-in-out;
+} */
+.img-left{
+    margin-left:0;
+    width : 681px;
+    height: 368px;
 }
 .img-left:hover{
   transform : scale(1.01);
@@ -82,7 +91,7 @@
 .Restdetail .name {
   font-size : 3.6rem;
   font-weight: 600;
-  
+
 
 }
 .Restdetail .description {
@@ -101,6 +110,7 @@
   background-color: rgb(75, 155, 66);
   color : #fff;
   line-height: 1.5;
+  width : 50px;
   font-size : 1.6rem;
   font-weight: 700;
   border-radius: 8px;
@@ -149,6 +159,8 @@
 
 .add-item-btn {
   position : absolute;
+  width : 90px;
+  height : 40px;
   font-size: 1.4rem;
   font-weight: 600;
   left : 800px;
@@ -159,6 +171,46 @@
   border : 1.2px solid rgb(237, 90, 107);
   border-radius: 10px;
 }
+
+.changed-item-span {
+    position : absolute;
+    display:inline-flex;
+    width : 90px;
+    height : 40px;
+    font-size: 1.7rem;
+    font-weight: 600;
+    left : 800px;
+    top : 10px;
+    padding-left :20px;
+    color:#fff;
+    background-color: rgb(237, 90, 107);
+    border : 1.2px solid rgb(237, 90, 107);
+    border-radius: 10px;
+}
+.changed-add-btn{
+  position:absolute;
+  right:5px;
+  background-color: rgb(237, 90, 107);
+  border:none;
+  border-radius: 10px;
+  margin-top : 6px;
+}
+.changed-item-count {
+  align-items: center;
+  position :relative;
+  margin-left : 17px;
+  margin-top : 7px;
+}
+.changed-remove-btn{
+  position:absolute;
+  left:5px;
+  background-color: rgb(237, 90, 107);
+  border:none;
+  border-radius: 10px;
+  margin-top : 6px;
+}
+
+
 
 .item-price {
   font-size: 1.4rem;
@@ -211,4 +263,39 @@
 .detail-container{
   margin-top: 0px;
   height: 150px;
+}
+
+/* Order details and cart */
+.order-details {
+  width : 100%;
+  z-index: 1;
+  position: fixed;
+  margin-top:10px;
+  display:inline-flex;
+  background-color: #fff;
+  bottom:0;
+  left:20%;
+  right:20%;
+  height:60px;
+}
+
+.item-count {
+  line-height: 1.5;
+  font-size:2rem;
+  font-weight: 500;
+}
+
+.total-price {
+  margin-left: 600px;
+  line-height: 1.5;
+  font-size:2rem;
+  font-weight: 500;
+}
+
+.continuebtn{
+  color : #fff;
+  background-color: rgb(237, 90, 107);
+  margin-left: 20px;
+  width : 150px;
+  height : 50px;
 }

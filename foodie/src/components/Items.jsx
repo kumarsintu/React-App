@@ -3,7 +3,22 @@ import React,{useState} from "react";
 
 function Items(props){
   const curritem=props.item;
-  const {itemId,itemName,itemImg,itemPrice,itemRating,itemDescription}=curritem;
+  const {itemName,itemImg,itemPrice,itemRating,itemDescription}=curritem;
+
+  const [currItemCount,setcurrItemCount]=useState(0);
+
+  function handleClick() {
+    props.handleAddPrice(curritem);
+    setcurrItemCount(prevValue => {
+      return(prevValue+1);
+    })
+  }
+  function handleRemove(){
+    props.handleRemovePrice(curritem);
+    setcurrItemCount(prevValue=>{
+      return(prevValue-1);
+    })
+  }
   console.log(itemPrice);
   return (
     <div className="item-container">
@@ -22,7 +37,13 @@ function Items(props){
         </div>
         <p className="item-price">₹{itemPrice}</p>
         <p className="item-description">{itemDescription}</p>
-        <button className="add-item-btn btn"> ADD +</button>
+        {currItemCount>0 ?
+          <span className="changed-item-span">
+            <button onClick={handleRemove} className="changed-remove-btn">-</button>
+            <p className="changed-item-count">{currItemCount}</p>
+            <button onClick={handleClick} className="changed-add-btn">+</button>
+          </span> : <button className="add-item-btn" onClick={handleClick}> ADD +</button>
+        }
       </div>
     </div>
   )
