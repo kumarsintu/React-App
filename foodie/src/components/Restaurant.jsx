@@ -7,6 +7,7 @@ function Restaurant(props) {
         props.handleClick(props.restId);
         console.log("restId " + props.restId);
     }
+
     return(
       <div onClick={handleClick} >
           <img src={props.image} alt="restaurant" className="res-img" />
@@ -15,6 +16,14 @@ function Restaurant(props) {
           <p>{props.address}</p>
       </div>
     );
+
+    return <div onClick={handleClick}>
+        <img src={props.image} alt="restaurant" className="res-img" />
+        <h1 className="rest-name">{props.name}</h1>
+        <p className="rating">{props.rating}</p>
+        <p>{props.address}</p>
+    </div>
+
 }
 
 export default Restaurant;

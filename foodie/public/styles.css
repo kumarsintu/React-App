@@ -239,7 +239,6 @@
 .container{
   background-color:lightslategray;
   border-radius: 10px;
-  text-align: center;
   width: 30%;
   margin: 10px 10px 20px 10px;
   display:inline-block;
@@ -264,6 +263,7 @@
   margin-top: 0px;
   height: 150px;
 }
+
 
 /* Order details and cart */
 .order-details {
@@ -299,3 +299,14 @@
   width : 150px;
   height : 50px;
 }
+=======
+.rest-name{
+  display: inline-block;
+  margin-left: 2px;
+}
+.rest-rating{
+  display: inline-block;
+  position: relative;
+  margin-left: 160px;
+}
+
