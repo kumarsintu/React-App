@@ -9,8 +9,8 @@ function Restaurant(props) {
     }
     return <div onClick={handleClick}>
         <img src={props.image} alt="restaurant" className="res-img" />
-        <h1>{props.name}</h1>
-        <p>{props.rating}</p>
+        <h1 className="rest-name">{props.name}</h1>
+        <p className="rating">{props.rating}</p>
         <p>{props.address}</p>
     </div>
 }

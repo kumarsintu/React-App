@@ -1,0 +1,12 @@
+.sigin-container{
+    width: 20%;
+    margin: 15% auto 25% auto;
+    line-height: 30px;
+}
+.signin-heading{
+    text-align: center;
+    color: teal;
+}
+.form-group{
+    margin: 0 0 15px 0;
+}
