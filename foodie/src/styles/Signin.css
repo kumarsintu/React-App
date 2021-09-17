@@ -1,5 +1,5 @@
 .sigin-container{
-    width: 20%;
+    width: 30%;
     margin: 15% auto 25% auto;
     line-height: 30px;
 }
@@ -8,5 +8,5 @@
     color: teal;
 }
 .form-group{
-    margin: 0 0 15px 0;
+    margin: 0 10px 15px 0;
 }

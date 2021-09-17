@@ -22,7 +22,7 @@ function Signin() {
                         placeholder="email"
                     />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="form-group">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
