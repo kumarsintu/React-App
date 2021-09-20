@@ -7,7 +7,6 @@ import Signin from "./Signin";
 import "../styles/App.css";
 
 
-
 function App() {
   const [restId, setRestId] = useState(0);
   const [flag, setFlag] = useState(1);
@@ -18,7 +17,6 @@ function App() {
     setFlag(!flag);
     setRestId(id);
     currentResturent = restaurentlist[id - 1];
-    console.log("current restaurant + " + currentResturent);
   }
   function handleBackButton() {
     setFlag(!flag);
@@ -34,9 +32,8 @@ function App() {
       {
         signFlag ?
           <div>
-            <Header
-              handleSigninClick={handleSigninClick}
-            />{
+            <Header handleSigninClick={handleSigninClick} />
+            {
               flag ?
                 restaurentlist.map((restaurantItem, index) => {
                   return <div className="container">

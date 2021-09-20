@@ -8,19 +8,25 @@ function Items(props){
 
   const [currItemCount,setcurrItemCount]=useState(0);
 
-  function handleClick() {
+  function handleAdd() {
     props.handleAddPrice(curritem);
+    if(currItemCount===0){
+      props.addCartItem(curritem);
+    }
     setcurrItemCount(prevValue => {
       return(prevValue+1);
     })
   }
   function handleRemove(){
     props.handleRemovePrice(curritem);
+    if(currItemCount===1){
+      props.removeCartItem(curritem);
+    }
     setcurrItemCount(prevValue=>{
       return(prevValue-1);
     })
   }
-  console.log(itemPrice);
+
   return (
     <div className="item-container">
       <img alt="item-img" src={itemImg} className="item-img"/>
@@ -42,8 +48,8 @@ function Items(props){
           <span className="changed-item-span">
             <button onClick={handleRemove} className="changed-remove-btn">-</button>
             <p className="changed-item-count">{currItemCount}</p>
-            <button onClick={handleClick} className="changed-add-btn">+</button>
-          </span> : <button className="add-item-btn" onClick={handleClick}> ADD +</button>
+            <button onClick={handleAdd} className="changed-add-btn">+</button>
+          </span> : <button className="add-item-btn" onClick={handleAdd}> ADD +</button>
         }
       </div>
     </div>
