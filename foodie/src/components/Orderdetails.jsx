@@ -44,7 +44,7 @@ function Orderdetails(props){
           }
 
         <div className="order-details">
-          <button className="btn btn-lg detail-order-btn" onClick={handleToggleDetails}>Full details</button>
+          <button className="btn btn-lg detail-order-btn" onClick={handleToggleDetails}>Toggle</button>
           <h4 className="item-count">Your Order ({itemCount})</h4>
           <h4 className="total-price">Subtotal: ₹{totalPrice} </h4>
           <button className="btn btn-lg continuebtn">Continue</button>
