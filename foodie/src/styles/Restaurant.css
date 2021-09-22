@@ -1,0 +1,29 @@
+
+.res-img{
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.rating{
+  background-color: rgb(75, 155, 66);
+  color:#fff;
+  display:inline-block;
+  position:relative;
+  border-radius: 10%;
+  width: 35px;
+  line-height: 1.5;
+  width : 50px;
+  font-size : 1.6rem;
+  font-weight: 700;
+  border-radius: 8px;
+  border:none;
+  padding-left : 10px;
+  padding-right: 10px;
+}
+.name{
+    color : black;
+    font-weight: "600";
+    display: inline-block;
+    width: 250px;
+}

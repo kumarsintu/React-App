@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import restaurentlist from "../restaurents";
+import restaurantlist from "../restaurants";
 import Restaurant from "./Restaurant.js";
+import "../styles/Restaurantlist.css";
 
 
 
-const Restuarentlist = () => {
+const Restaurantlist = () => {
     let url;
     return (
-        restaurentlist.map((restaurantItem, index) => {
+        restaurantlist.map((restaurantItem, index) => {
             url = "/restaurentdetails/" + index;
-            return <div className="container">
+            return <div className="res-container">
                 <Link to={url}>
                     <Restaurant
                         restId={restaurantItem.id}
@@ -19,7 +20,6 @@ const Restuarentlist = () => {
                         address={restaurantItem.address}
                         rating={restaurantItem.rating}
                         image={restaurantItem.imgurl}
-
                     />
                 </Link>
             </div>
@@ -27,4 +27,4 @@ const Restuarentlist = () => {
     )
 }
 
-export default Restuarentlist;
+export default Restaurantlist;

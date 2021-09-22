@@ -1,7 +1,7 @@
 import React from "react";
+import "../styles/Restaurant.css";
 
 function Restaurant(props) {
-
     function handleClick(event) {
         props.handleClick(props.restId);
         console.log("restId " + props.restId);
@@ -10,8 +10,8 @@ function Restaurant(props) {
     return (
         <div>
             <img src={props.image} alt="restaurant" className="res-img" />
-            <h4 style={{ fontWeight: "600" }}>{props.name}</h4>
-            <p>{props.rating}</p>
+            <h4 className="name">{props.name}</h4>
+            <p className="rating">{props.rating}⭐</p>
             <p>{props.address}</p>
         </div>
     );

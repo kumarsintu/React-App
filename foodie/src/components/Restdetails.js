@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import restaurentlist from "../restaurents";
+import restaurantlist from "../restaurants";
 import Items from "./Items";
 import Orderdetails from "./Orderdetails";
 import "../styles/Restdetails.css";
@@ -7,7 +7,7 @@ import "../styles/Restdetails.css";
 
 function Restdetails(props) {
   console.log(props);
-  const currentRest = restaurentlist[props.restId];
+  const currentRest = restaurantlist[props.restId];
   const { name, address, description, rating, itemList } = currentRest;
   const [totalPrice, setPrice] = useState(0);
   const [itemCount, setitemCount] = useState(0);
