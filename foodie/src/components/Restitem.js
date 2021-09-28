@@ -8,7 +8,6 @@ import "../styles/Items.css"
 const Restitem = () => {
     const params = useParams();
     const id = params.restid;
-    console.log(id);
 
     return (
         <div className="detail-container">

@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import Restaurantlist from "./Restaurantlist";
 import Restitem from "./Restitem";
 import Signin from "./Signin";
+import Togglecart from "./Togglecart";
 import "../styles/App.css"
 
 
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/restaurentdetails/:restid" component={Restitem} />
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/cart" component={Togglecart} />
 
     </div >
   );

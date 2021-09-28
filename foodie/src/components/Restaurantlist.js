@@ -5,7 +5,6 @@ import Restaurant from "./Restaurant.js";
 import "../styles/Restaurantlist.css";
 
 
-
 const Restaurantlist = () => {
     let url;
     return (
