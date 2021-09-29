@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import "../styles/Orderdetails.css";
+import {useLocation} from 'react-router-dom';
+import "../styles/Cart.css";
 
 
 const Togglecart=(props) =>{
@@ -37,32 +38,33 @@ const Togglecart=(props) =>{
 }
 
 
+const Cart = (props) => {
+  const location = useLocation();
+  const {cartItems}=location.state;
+  console.log(cartItems);
 
+  const [priceTotal,setPriceTotal]=useState(props.totalPrice);
+  const [totalCount,setTotalCount]=useState(props.totalItemCount);
+  function handleAddPrice(item){
+      setPriceTotal(prevValue=>prevValue+item.itemPrice);
+  }
+  function handleRemovePrice(item){
+      setPriceTotal(prevValue=>prevValue-item.itemPrice);
+  }
+  return (
+    <div className="toggle-full-cart">
+        <h3>Your Orders</h3>
+        <hr />
+        { cartItems.map((item,index) =>
+          <Togglecart
+                item={item}
+                key={index}
+                handleAddPrice={handleAddPrice}
+                handleRemovePrice={handleRemovePrice}
+          />
+        )}
+    </div>
+  );
+}
 
-// const Cart = (props) => {
-//   const cartItems= props.cartItems;
-//   const [priceTotal,setPriceTotal]=useState(props.totalPrice);
-//   const [totalCount,setTotalCount]=useState(props.totalItemCount);
-//   function handleAddPrice(item){
-//       setPriceTotal(prevValue=>prevValue+item.itemPrice);
-//   }
-//   function handleRemovePrice(item){
-//       setPriceTotal(prevValue=>prevValue-item.itemPrice);
-//   }
-//   return (
-//     <div className="toggle-full-cart">
-//         <h3>Your Orders</h3>
-//         <hr />
-//         { cartItems.map((item,index) =>
-//           <Togglecart
-//                 item={item}
-//                 key={index}
-//                 handleAddPrice={handleAddPrice}
-//                 handleRemovePrice={handleRemovePrice}
-//           />
-//         )}
-//     </div>
-//   );
-// }
-
-export default Togglecart;
+export default Cart;

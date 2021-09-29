@@ -5,11 +5,17 @@ import Orderdetails from "./Orderdetails";
 
 function Item(props){
   const curritem=props.item;
+  const cartItems=props.cartItems;
   const {itemName,itemImg,itemPrice,itemRating,itemDescription,itemCount}=curritem;
   const [currItemCount,setcurrItemCount]=useState(itemCount?itemCount:0);
 
+  if(currItemCount!==0 && !cartItems.includes(curritem)){
+    props.addCartItem(curritem);
+    props.handleAddPrice(curritem,currItemCount);
+  }
+
   const handleAdd=()=> {
-    props.handleAddPrice(curritem);
+    props.handleAddPrice(curritem,1);
     if(currItemCount===0){
       props.addCartItem(curritem);
     }
@@ -78,9 +84,9 @@ function Items(props){
     });
   }
 
-  const handleAddPrice=(clickedItem) => {
-    setTotalItemCount(prevValue => { return (prevValue + 1) });
-    setPrice(prevValue => { return (prevValue + clickedItem.itemPrice) });
+  const handleAddPrice=(clickedItem,count) => {
+    setTotalItemCount(prevValue => { return (prevValue + count) });
+    setPrice(prevValue => { return (prevValue + (clickedItem.itemPrice)*count) });
   }
 
   const handleRemovePrice= (clickedItem) => {
@@ -97,6 +103,7 @@ function Items(props){
             handleRemovePrice={handleRemovePrice}
             addCartItem={addCartItem}
             removeCartItem={removeCartItem}
+            cartItems={cartItems}
             key={index}
           /> )
       }
