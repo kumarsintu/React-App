@@ -3,7 +3,6 @@
   background-color: #fff;
   font-size: 1.6rem;
   position:relative;
-  height : 600px;
 }
 .toggle-div {
   display:inline-flex;
@@ -13,17 +12,17 @@
   width : 75%;
 }
 .toggle-itemprice {
-  margin-left: 50px;
+  margin-left:5px;
   margin-right : 20px;
 }
 hr {
   border : 1px solid rgb(232, 232, 232);
 }
 
-.toggle-item-span {
+.toggle-btn-span {
     position : absolute;
     display:inline-flex;
-    right : 20px;
+    right : 50px;
     width : 90px;
     height : 40px;
     font-size: 1.7rem;
@@ -55,4 +54,24 @@ hr {
   border:none;
   border-radius: 10px;
   margin-top : 6px;
+}
+.total-summary{
+  position:relative;
+  display:inline-flex;
+}
+.summary-para{
+  position:relative;
+  font-size: 2rem;
+}
+.grand-total{
+  position:absolute;
+  font-size:2rem;
+  left :820px;
+}
+.continue-payment-btn{
+  color : #fff;
+  background-color: rgb(237, 90, 107);
+  position:absolute;
+  margin-left: 910px;
+  width : 200px;
 }

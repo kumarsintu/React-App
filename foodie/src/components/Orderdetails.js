@@ -11,7 +11,9 @@ function Orderdetails(props){
           <div className="order-details">
             <h4 className="item-count">Your Order ({totalItemCount})</h4>
             <h4 className="total-price">Subtotal: ₹{totalPrice} </h4>
-            <Link to={{pathname:"/carts",state:{cartItems:cartItems}}}> <button className="btn btn-lg continuebtn">Continue</button></Link>
+            <Link to={{pathname:"/cart",state:{cartItems:cartItems,totalPrice:totalPrice,totalItemCount:totalItemCount}}}>
+                <button className="btn btn-lg continuebtn">Continue</button>
+            </Link>
           </div>
       </div>
   )

@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom';
 import "../styles/Cart.css";
 
 
-const Togglecart=(props) =>{
+const Cartitem=(props) =>{
   const item=props.item;
   const [itemCount,setItemCount]=useState(item.itemCount);
 
@@ -16,9 +16,11 @@ const Togglecart=(props) =>{
 
   function handleRemove() {
     console.log("handleRemove called");
-    setItemCount(prevValue=>prevValue-1);
-    item["itemCount"]=item["itemCount"]-1;
-    props.handleRemovePrice(item);
+    if(itemCount>0){
+        setItemCount(prevValue=>prevValue-1);
+        item["itemCount"]=item["itemCount"]-1;
+        props.handleRemovePrice(item);
+    }
   }
 
   return(
@@ -26,7 +28,7 @@ const Togglecart=(props) =>{
           <div className="toggle-div">
                 <h4 className="toggle-itemname">{item.itemName}</h4>
                 <h4 className="toggle-itemprice">₹{item.itemPrice*itemCount}</h4>
-                <span className="toggle-item-span">
+                <span className="toggle-btn-span">
                   <button onClick={handleRemove} className="toggle-remove-btn">-</button>
                   <p className="toggle-item-count">{itemCount}</p>
                   <button onClick={handleAdd} className="toggle-add-btn">+</button>
@@ -40,29 +42,37 @@ const Togglecart=(props) =>{
 
 const Cart = (props) => {
   const location = useLocation();
-  const {cartItems}=location.state;
-  console.log(cartItems);
+  const {cartItems,totalPrice,totalItemCount}=location.state;
+  console.log(location.state);
 
-  const [priceTotal,setPriceTotal]=useState(props.totalPrice);
-  const [totalCount,setTotalCount]=useState(props.totalItemCount);
+  const [priceTotal,setPriceTotal]=useState(totalPrice);
+  const [totalCount,setTotalCount]=useState(totalItemCount);
   function handleAddPrice(item){
       setPriceTotal(prevValue=>prevValue+item.itemPrice);
+      setTotalCount(prevValue=>prevValue+1);
   }
   function handleRemovePrice(item){
       setPriceTotal(prevValue=>prevValue-item.itemPrice);
+      setTotalCount(prevValue=>prevValue-1);
   }
   return (
     <div className="toggle-full-cart">
         <h3>Your Orders</h3>
         <hr />
         { cartItems.map((item,index) =>
-          <Togglecart
+          <Cartitem
                 item={item}
                 key={index}
                 handleAddPrice={handleAddPrice}
                 handleRemovePrice={handleRemovePrice}
           />
         )}
+        <div className="total-summary">
+          <p className="summary-para">Grand Total ({totalCount})</p>
+          <h4 className="grand-total">₹{priceTotal}</h4>
+          <button className="btn btn-lg continue-payment-btn"> Continue to Payment </button>
+        </div>
+
     </div>
   );
 }

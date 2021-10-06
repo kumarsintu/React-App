@@ -10,7 +10,8 @@ const Restaurantlist = () => {
     return (
         restaurantlist.map((restaurantItem, index) => {
             url = "/restaurentdetails/" + index;
-            return <div className="res-container">
+            return (
+              <div className="res-container">
                 <Link to={url}>
                     <Restaurant
                         restId={restaurantItem.id}
@@ -22,6 +23,7 @@ const Restaurantlist = () => {
                     />
                 </Link>
             </div>
+           )
         })
     )
 }

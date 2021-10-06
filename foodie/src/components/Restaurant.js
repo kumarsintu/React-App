@@ -8,11 +8,11 @@ function Restaurant(props) {
     }
 
     return (
-        <div>
+        <div className="one-res">
             <img src={props.image} alt="restaurant" className="res-img" />
             <h4 className="name">{props.name}</h4>
             <p className="rating">{props.rating}⭐</p>
-            <p>{props.address}</p>
+            <p className="address">{props.address}</p>
         </div>
     );
 }

@@ -1,10 +1,10 @@
 .res-container{
   background-color: #fff;
-  border-radius: 10px;
-  width: 30%;
-  margin: 10px 10px 20px 10px;
   display: inline-block;
-  margin-left:25px;
+  position :relative;
+  border-radius: 10px;
+  width: 28%;
+  margin: 10px 45px 20px 12px;
 }
 .res-container:hover{
   transform : scale(1.03);
