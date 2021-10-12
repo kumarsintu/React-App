@@ -1,40 +1,27 @@
 import React,{useState} from "react";
 import "../styles/Items.css";
-import Orderdetails from "./Orderdetails";
+import Ordersummary from "./Ordersummary";
+import {cartActions} from "../store/index";
+import {useSelector,useDispatch} from "react-redux";
 
 
 function Item(props){
-  const curritem=props.item;
+  const dispatch=useDispatch();
+  const currItem=props.item;
   const cartItems=props.cartItems;
-  const {itemName,itemImg,itemPrice,itemRating,itemDescription,itemCount}=curritem;
-  const [currItemCount,setcurrItemCount]=useState(itemCount?itemCount:0);
-
-  if(currItemCount!==0 && !cartItems.includes(curritem)){
-    props.addCartItem(curritem);
-    props.handleAddPrice(curritem,currItemCount);
-  }
+  const itemInCart=cartItems.find(item=>item.itemId===currItem.itemId);
+  const itemFinalCount=itemInCart?itemInCart.itemCount:0;
+  const {itemName,itemImg,itemPrice,itemRating,itemDescription,itemCount}=currItem;
+  const [currItemCount,setcurrItemCount]=useState(itemFinalCount);
 
   const handleAdd=()=> {
-    props.handleAddPrice(curritem,1);
-    if(currItemCount===0){
-      props.addCartItem(curritem);
-    }
-    curritem["itemCount"]=currItemCount+1;
-    setcurrItemCount(prevValue => {
-      return(prevValue+1);
-    })
+    dispatch(cartActions.addItem(currItem));
+    setcurrItemCount(prevValue=>{return(prevValue+1)});
   }
   const handleRemove=()=>{
-    props.handleRemovePrice(curritem);
-    if(currItemCount===1){
-      props.removeCartItem(curritem);
-    }
-    curritem["itemCount"]=currItemCount-1;
-    setcurrItemCount(prevValue=>{
-      return(prevValue-1);
-    })
+    dispatch(cartActions.removeItem(currItem));
+    setcurrItemCount(prevValue=>prevValue-1);
   }
-
   return(
       <div className="item-container">
         <img alt="item-img" src={itemImg} className="item-img"/>
@@ -57,7 +44,8 @@ function Item(props){
                 <button onClick={handleRemove} className="changed-remove-btn">-</button>
                 <p className="changed-item-count">{currItemCount}</p>
                 <button onClick={handleAdd} className="changed-add-btn">+</button>
-              </span> : <button className="add-item-btn" onClick={handleAdd}> ADD +</button>
+              </span>
+              : <button className="add-item-btn" onClick={handleAdd}> ADD +</button>
           }
         </div>
     </div>
@@ -66,52 +54,23 @@ function Item(props){
 
 function Items(props){
   const items=props.itemList;
-  const [totalPrice, setPrice] = useState(0);
-  const [totalItemCount, setTotalItemCount] = useState(0);
-  const [cartItems, setcartItems] = useState([]);
-
-  const addCartItem = (item) => {
-    setcartItems(prevValue => {
-      return ([...prevValue, item]);
-    })
-  }
-
-  const removeCartItem = (item) => {
-    let index = cartItems.indexOf(item);
-    cartItems.splice(index, 1);
-    setcartItems(prevValue => {
-      return (cartItems);
-    });
-  }
-
-  const handleAddPrice=(clickedItem,count) => {
-    setTotalItemCount(prevValue => { return (prevValue + count) });
-    setPrice(prevValue => { return (prevValue + (clickedItem.itemPrice)*count) });
-  }
-
-  const handleRemovePrice= (clickedItem) => {
-    setTotalItemCount(prevValue => { return (prevValue - 1) });
-    setPrice(prevValue => { return (prevValue - clickedItem.itemPrice) });
-  }
+  const totalPrice = useSelector(state=>state.cartSlice.totalPrice);
+  const totalItemCount =useSelector(state=>state.cartSlice.totalItemCount);
+  const cartItems = useSelector(state=>state.cartSlice.cartItems);
 
   return (
     <div>
       {items.map((item,index)=>
          <Item
+            key={item.itemId}
             item={item}
-            handleAddPrice={handleAddPrice}
-            handleRemovePrice={handleRemovePrice}
-            addCartItem={addCartItem}
-            removeCartItem={removeCartItem}
             cartItems={cartItems}
-            key={index}
           /> )
       }
       {totalPrice > 0 ?
-        <Orderdetails totalItemCount={totalItemCount} totalPrice={totalPrice} cartItems={cartItems} key={1} />
+        <Ordersummary totalItemCount={totalItemCount} totalPrice={totalPrice} />
         : null
       }
-      <h1>{totalPrice}</h1>
     </div>
   )
 }

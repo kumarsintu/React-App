@@ -1,26 +1,22 @@
 import React,{useState} from 'react';
-import {useLocation} from 'react-router-dom';
 import "../styles/Cart.css";
+import {useSelector,useDispatch} from "react-redux";
+import {cartActions} from "../store/index";
 
 
 const Cartitem=(props) =>{
   const item=props.item;
+  const dispatch=useDispatch();
   const [itemCount,setItemCount]=useState(item.itemCount);
 
   function handleAdd(){
-    console.log("handleAdd called");
     setItemCount(prevValue=>prevValue+1);
-    item["itemCount"]=item["itemCount"]+1;
-    props.handleAddPrice(item);
+    dispatch(cartActions.addItem(item));
   }
 
   function handleRemove() {
-    console.log("handleRemove called");
-    if(itemCount>0){
-        setItemCount(prevValue=>prevValue-1);
-        item["itemCount"]=item["itemCount"]-1;
-        props.handleRemovePrice(item);
-    }
+    setItemCount(prevValue=>prevValue-1);
+    dispatch(cartActions.removeItem(item));
   }
 
   return(
@@ -41,30 +37,18 @@ const Cartitem=(props) =>{
 
 
 const Cart = (props) => {
-  const location = useLocation();
-  const {cartItems,totalPrice,totalItemCount}=location.state;
-  console.log(location.state);
+  const cartItems  = useSelector(state=>state.cartSlice.cartItems);
+  const priceTotal = useSelector(state=>state.cartSlice.totalPrice);
+  const totalCount = useSelector(state=>state.cartSlice.totalItemCount);
 
-  const [priceTotal,setPriceTotal]=useState(totalPrice);
-  const [totalCount,setTotalCount]=useState(totalItemCount);
-  function handleAddPrice(item){
-      setPriceTotal(prevValue=>prevValue+item.itemPrice);
-      setTotalCount(prevValue=>prevValue+1);
-  }
-  function handleRemovePrice(item){
-      setPriceTotal(prevValue=>prevValue-item.itemPrice);
-      setTotalCount(prevValue=>prevValue-1);
-  }
   return (
     <div className="toggle-full-cart">
         <h3>Your Orders</h3>
         <hr />
         { cartItems.map((item,index) =>
           <Cartitem
+                key={item.itemId}
                 item={item}
-                key={index}
-                handleAddPrice={handleAddPrice}
-                handleRemovePrice={handleRemovePrice}
           />
         )}
         <div className="total-summary">

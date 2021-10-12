@@ -14,8 +14,9 @@
 }
 
 .link-div {
+  position: relative;
   text-align: right;
-  margin-left: 840px;
+  margin-left: 78%;
   padding-top : 30px;
 }
 .links {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import restaurantlist from "../restaurants";
-import Restaurant from "./Restaurant.js";
+import Onerestaurant from "./Onerestaurant.js";
 import "../styles/Restaurantlist.css";
 
 
@@ -13,7 +13,7 @@ const Restaurantlist = () => {
             return (
               <div className="res-container">
                 <Link to={url}>
-                    <Restaurant
+                    <Onerestaurant
                         restId={restaurantItem.id}
                         key={index}
                         name={restaurantItem.name}
